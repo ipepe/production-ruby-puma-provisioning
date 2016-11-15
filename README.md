@@ -21,6 +21,11 @@ Docker will have ports for:
  * ssh for deployment
  * http for obvious reasons
  
+ 
+# Docker starting images:
+```bash
+sudo docker run --restart=always redis
+```
 
 # based on:
  * https://www.digitalocean.com/community/tutorials/deploying-a-rails-app-on-ubuntu-14-04-with-capistrano-nginx-and-puma
