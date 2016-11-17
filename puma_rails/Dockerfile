@@ -45,7 +45,7 @@ RUN chmod 0755 /var/run/sshd
 
 # dodanie usera webapp do sudo
 RUN echo 'webapp ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-RUN echo "webapp:$WEBAPP_PASSWORD" | chpasswd
+RUN echo "webapp:Password1" | chpasswd
 WORKDIR /home/webapp
 
 CMD ["/usr/sbin/sshd", "-D"]
