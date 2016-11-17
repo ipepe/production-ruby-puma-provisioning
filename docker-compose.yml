@@ -15,8 +15,6 @@ services:
     tty: true
     volumes:
       - "/opt/docker/volumes/apps:/home/deploy/apps"
-    environment:
-      WEBAPP_PASSWORD: Password666
     links:
       - pgsql
     ports:
