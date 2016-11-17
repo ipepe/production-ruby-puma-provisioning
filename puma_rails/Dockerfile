@@ -40,6 +40,9 @@ RUN apt-get update && apt-get install -y postgresql-client-9.4
 
 # instalacja serwera ssh
 RUN apt-get install -y openssh-server
+RUN su - webapp -c "mkdir -p /home/webapp/.ssh"
+COPY ./authorized_keys /home/webapp/.ssh/
+RUN chown webapp:webapp /home/webapp/.ssh/authorized_keys && chmod 600 /home/webapp/.ssh/authorized_keys
 RUN mkdir /var/run/sshd
 RUN chmod 0755 /var/run/sshd
 
