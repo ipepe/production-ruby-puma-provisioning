@@ -13,7 +13,9 @@ services:
     build: ./puma_rails
     image: puma_rails
     tty: true
+    environment:
+      WEBAPP_PASSWORD: Password666
     links:
       - pgsql
     ports:
-      - "22:2222"
+      - "2222:22"
