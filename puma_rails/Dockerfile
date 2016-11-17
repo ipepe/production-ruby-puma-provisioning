@@ -39,7 +39,7 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
 RUN apt-get update && apt-get install -y postgresql-client-9.4
 
 # instalacja serwera ssh
-RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-server nginx
 RUN su - webapp -c "mkdir -p /home/webapp/.ssh"
 COPY ./authorized_keys /home/webapp/.ssh/
 RUN chown webapp:webapp /home/webapp/.ssh/authorized_keys && chmod 600 /home/webapp/.ssh/authorized_keys
@@ -48,7 +48,6 @@ RUN chmod 0755 /var/run/sshd
 
 # dodanie usera webapp do sudo
 RUN echo 'webapp ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-RUN echo "webapp:Password1" | chpasswd
 WORKDIR /home/webapp
 
 CMD ["/usr/sbin/sshd", "-D"]
