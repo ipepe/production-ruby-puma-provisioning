@@ -13,6 +13,8 @@ services:
     build: ./puma_rails
     image: puma_rails
     tty: true
+    volumes:
+      - "/opt/docker/volumes/apps:/home/deploy/apps"
     environment:
       WEBAPP_PASSWORD: Password666
     links:
